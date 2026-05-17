@@ -2,6 +2,7 @@ FROM golang:alpine AS build
 WORKDIR /src
 COPY go.mod ./
 COPY main.go ./
+COPY templates/ ./templates/
 RUN CGO_ENABLED=0 go build -ldflags="-s -w" -o /relay .
 
 FROM scratch
